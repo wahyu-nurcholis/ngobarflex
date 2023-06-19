@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body   {
+    font-family: 'Shantell Sans', cursive;
+    overflow-x: hidden;
+}
+
+/* navbar */
+nav{
+    display: flex;
+    background-color: rgb(25, 206, 49);
+    justify-content: space-around;
+    /*padding: 20px 0;*/
+    color: rgb(252, 239, 239);
+    text-transform: capitalize;
+    align-items: center;
+    height: 50px;
+    
+}
+
+nav .logo   {
+    font-family: 'Righteous', cursive;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    width: 40%;
+
+    
+}
+
+nav ul li a {
+    color: blanchedalmond;
+    text-decoration: none;
+    font-size: .8em;
+}
+
+nav ul li a:hover   {
+    color: black;
+}
+
+
+/* hamburger menu */
+.menu-toggle    {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input  {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -6px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+
+}
+
+.menu-toggle span   {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(121, 73, 2);
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/* hamburger menu animation */
+.menu-toggle span:nth-child(2)  {
+    transform-origin: 0 0;
+
+}
+.menu-toggle span:last-child  {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    background-color: white;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.menu-toggle input:checked ~ span:last-child {
+    background-color: white;
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+
+
+
+/* resposiv break point */
+
+/*ukuran tablet*/
+@media screen and (max-width: 768px) {
+    nav ul  {
+        width: 50%;
+    }
+    
+}
+
+/* rukuran mobile */
+@media screen and (max-width: 576px) {
+    .menu-toggle {
+        display: flex;
+    }
+    nav ul  {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 70%;
+        height: 100vh;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        z-index: -1;
+        background-color: rgb(25, 206, 49);
+        transform: translateX(100%);
+        transition: all 1s;
+
+    }
+    nav ul.slide    {
+        transform: translateX(0);
+    }
+
+
+}
